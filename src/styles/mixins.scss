@@ -1,0 +1,11 @@
+/* Reusable SCSS mixins */
+
+@mixin transition($properties, $duration: 0.2s, $timing: ease-in-out) {
+  transition: $properties $duration $timing;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
