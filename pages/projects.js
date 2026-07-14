@@ -52,7 +52,8 @@ export default function ProjectsPage() {
       }
 
       const res = await axios.get(
-        `http://localhost:5000/api/projects?search=${encodeURIComponent(
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects?search=${encodeURIComponent(
           searchValue
         )}`,
         {

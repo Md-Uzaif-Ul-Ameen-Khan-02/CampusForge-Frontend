@@ -32,7 +32,8 @@ export default function MyAnalyticsPage() {
         return;
       }
 
-      const res = await axios.get("http://localhost:5000/api/analytics/me", {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/analytics/me`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -19,7 +19,8 @@ export default function Projects() {
       setLoading(true);
 
       const res = await axios.get(
-        `http://localhost:5000/api/projects?search=${searchValue}`
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects?search=${searchValue}`
       );
 
       setProjects(res.data.projects || []);

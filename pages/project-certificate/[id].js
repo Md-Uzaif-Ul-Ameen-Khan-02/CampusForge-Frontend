@@ -34,7 +34,8 @@ export default function ProjectCertificatePage() {
       }
 
       const res = await axios.get(
-        `http://localhost:5000/api/projects/${id}/summary`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${id}/summary`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

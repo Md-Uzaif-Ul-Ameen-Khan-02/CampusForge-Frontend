@@ -26,7 +26,8 @@ export default function ModerationLogsPage() {
       }
 
       const res = await axios.get(
-        "http://localhost:5000/api/admin/moderation-logs",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/admin/moderation-logs`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -49,7 +49,8 @@ export default function EnvStatusPage() {
       }
 
       const res = await axios.get(
-        "http://localhost:5000/api/config/env-status",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/config/env-status`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -27,7 +27,8 @@ export default function ProjectRequestsPage() {
     try {
       const token = getToken();
 
-      const res = await axios.get(`http://localhost:5000/api/projects/${id}`, {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${id}`, {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
 
@@ -49,7 +50,8 @@ export default function ProjectRequestsPage() {
       }
 
       const res = await axios.get(
-        `http://localhost:5000/api/join-requests/project/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/join-requests/project/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -77,7 +79,8 @@ export default function ProjectRequestsPage() {
       }
 
       await axios.put(
-        `http://localhost:5000/api/join-requests/approve/${requestId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/join-requests/approve/${requestId}`,
         {},
         {
           headers: {
@@ -105,7 +108,8 @@ export default function ProjectRequestsPage() {
       }
 
       await axios.put(
-        `http://localhost:5000/api/join-requests/reject/${requestId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/join-requests/reject/${requestId}`,
         {},
         {
           headers: {

@@ -42,7 +42,8 @@ export default function NotificationsPage() {
         return;
       }
 
-      const res = await axios.get("http://localhost:5000/api/notifications", {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/notifications`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -72,7 +73,8 @@ export default function NotificationsPage() {
       }
 
       const res = await axios.patch(
-        `http://localhost:5000/api/notifications/read/${notificationId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/notifications/read/${notificationId}`,
         {},
         {
           headers: {
@@ -103,7 +105,8 @@ export default function NotificationsPage() {
       }
 
       const res = await axios.patch(
-        "http://localhost:5000/api/notifications/read-all",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/notifications/read-all`,
         {},
         {
           headers: {
@@ -140,7 +143,8 @@ export default function NotificationsPage() {
       }
 
       const res = await axios.delete(
-        `http://localhost:5000/api/notifications/${notificationId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/notifications/${notificationId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -173,7 +177,8 @@ export default function NotificationsPage() {
       }
 
       const res = await axios.delete(
-        "http://localhost:5000/api/notifications/delete-all",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/notifications/delete-all`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

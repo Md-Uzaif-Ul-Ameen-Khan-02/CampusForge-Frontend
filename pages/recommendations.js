@@ -52,7 +52,8 @@ export default function RecommendationsPage() {
       }
 
       const res = await axios.get(
-        "http://localhost:5000/api/recommendations/projects",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/recommendations/projects`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

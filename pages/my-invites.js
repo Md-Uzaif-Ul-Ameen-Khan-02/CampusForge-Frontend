@@ -51,7 +51,8 @@ export default function MyInvitesPage() {
       }
 
       const res = await axios.get(
-        "http://localhost:5000/api/project-invites/me",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/project-invites/me`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -82,7 +83,8 @@ export default function MyInvitesPage() {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/project-invites/accept/${inviteId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/project-invites/accept/${inviteId}`,
         {},
         {
           headers: {
@@ -120,7 +122,8 @@ export default function MyInvitesPage() {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/project-invites/reject/${inviteId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/project-invites/reject/${inviteId}`,
         {},
         {
           headers: {

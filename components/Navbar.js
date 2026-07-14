@@ -65,7 +65,7 @@ export default function Navbar() {
       }
 
       const res = await axios.get(
-        "http://localhost:5000/api/notifications/unread-count",
+        `${process.env.NEXT_PUBLIC_API_URL}/api/notifications/unread-count`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

@@ -31,7 +31,8 @@ export default function StartupDetailsPage() {
     try {
       setLoading(true);
 
-      const res = await axios.get("http://localhost:5000/api/startups");
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/startups`);
 
       const selectedStartup = res.data.startups.find(
         (item) => item._id === id
@@ -62,7 +63,8 @@ export default function StartupDetailsPage() {
       }
 
       await axios.post(
-        `http://localhost:5000/api/startups/mentor-interest/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/startups/mentor-interest/${id}`,
         {
           mentorName,
           mentorEmail,

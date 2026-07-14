@@ -49,7 +49,8 @@ export default function VerificationsPage() {
       }
 
       const res = await axios.get(
-        "http://localhost:5000/api/verifications/pending",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/verifications/pending`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -75,7 +76,8 @@ export default function VerificationsPage() {
       const token = getToken();
 
       await axios.patch(
-        `http://localhost:5000/api/verifications/approve/${verificationId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/verifications/approve/${verificationId}`,
         {},
         {
           headers: {
@@ -104,7 +106,8 @@ export default function VerificationsPage() {
       const token = getToken();
 
       await axios.patch(
-        `http://localhost:5000/api/verifications/reject/${verificationId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/verifications/reject/${verificationId}`,
         {
           rejectionReason: rejectionReason || "No reason provided",
         },

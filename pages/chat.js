@@ -39,7 +39,8 @@ export default function ChatPage() {
 
       const token = getToken();
 
-      const res = await axios.get(`http://localhost:5000/api/chat/${projectId}`, {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/chat/${projectId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -60,7 +61,8 @@ export default function ChatPage() {
       const token = getToken();
 
       await axios.post(
-        "http://localhost:5000/api/chat/send",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/chat/send`,
         {
           projectId,
           text,

@@ -51,7 +51,8 @@ export default function MyLikedProjectsPage() {
       }
 
       const res = await axios.get(
-        "http://localhost:5000/api/projects/liked/my-projects",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/liked/my-projects`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -83,7 +84,8 @@ export default function MyLikedProjectsPage() {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/projects/${projectId}/toggle-like`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${projectId}/toggle-like`,
         {},
         {
           headers: {

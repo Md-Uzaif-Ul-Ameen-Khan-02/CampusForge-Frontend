@@ -29,7 +29,8 @@ export default function HackathonDetailsPage() {
 
   const fetchHackathon = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/hackathons");
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/hackathons`);
 
       const selectedHackathon = res.data.hackathons.find(
         (item) => item._id === id
@@ -67,7 +68,8 @@ export default function HackathonDetailsPage() {
         : [];
 
       await axios.post(
-        `http://localhost:5000/api/hackathons/register/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/hackathons/register/${id}`,
         {
           teamName,
           teamMembers: membersArray,

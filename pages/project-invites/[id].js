@@ -25,7 +25,8 @@ export default function ProjectInvitesPage() {
     try {
       const token = getToken();
 
-      const res = await axios.get(`http://localhost:5000/api/projects/${id}`, {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${id}`, {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
 
@@ -47,7 +48,8 @@ export default function ProjectInvitesPage() {
       }
 
       const res = await axios.get(
-        `http://localhost:5000/api/project-invites/project/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/project-invites/project/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -81,7 +83,8 @@ export default function ProjectInvitesPage() {
       }
 
       await axios.delete(
-        `http://localhost:5000/api/project-invites/cancel/${inviteId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/project-invites/cancel/${inviteId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

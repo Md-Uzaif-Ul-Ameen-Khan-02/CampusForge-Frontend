@@ -60,7 +60,8 @@ export default function CreateProject() {
         .filter(Boolean);
 
       const res = await axios.post(
-        "http://localhost:5000/api/projects",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects`,
         {
           title,
           description,

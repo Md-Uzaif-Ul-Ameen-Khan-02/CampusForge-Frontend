@@ -34,7 +34,8 @@ export default function CompletedProjectsPage() {
       setErrorMessage("");
 
       const res = await axios.get(
-        "http://localhost:5000/api/projects/completed/showcase"
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/completed/showcase`
       );
 
       setCompletedProjects(res.data.completedProjects || []);
@@ -125,7 +126,8 @@ export default function CompletedProjectsPage() {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/projects/${projectId}/toggle-featured`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${projectId}/toggle-featured`,
         {},
         {
           headers: {
@@ -157,7 +159,8 @@ export default function CompletedProjectsPage() {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/projects/${projectId}/toggle-like`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${projectId}/toggle-like`,
         {},
         {
           headers: {

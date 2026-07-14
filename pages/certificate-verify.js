@@ -26,7 +26,8 @@ export default function CertificateVerifyPage() {
       setErrorMessage("");
 
       const res = await axios.get(
-        `http://localhost:5000/api/projects/certificate/verify/${idToVerify}`
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/certificate/verify/${idToVerify}`
       );
 
       setCertificate(res.data.certificate);
@@ -50,7 +51,8 @@ export default function CertificateVerifyPage() {
       setErrorMessage("");
 
       const res = await axios.get(
-        `http://localhost:5000/api/projects/certificate/verify/${certificateId}`
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/certificate/verify/${certificateId}`
       );
 
       setCertificate(res.data.certificate);

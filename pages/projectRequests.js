@@ -20,7 +20,8 @@ export default function ProjectRequests() {
       }
 
       const res = await axios.get(
-        `http://localhost:5000/api/join-requests/project/${projectId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/join-requests/project/${projectId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -40,7 +41,8 @@ export default function ProjectRequests() {
       const token = localStorage.getItem("accessToken");
 
       await axios.put(
-        `http://localhost:5000/api/join-requests/approve/${requestId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/join-requests/approve/${requestId}`,
         {},
         {
           headers: {

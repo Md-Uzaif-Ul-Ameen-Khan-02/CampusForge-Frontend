@@ -32,7 +32,8 @@ export default function SystemStatusPage() {
     try {
       setLoading(true);
 
-      const res = await axios.get("http://localhost:5000/api/health");
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/health`);
 
       setStatus(res.data);
     } catch (error) {

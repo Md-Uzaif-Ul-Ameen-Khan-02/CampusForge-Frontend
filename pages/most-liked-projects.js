@@ -27,7 +27,8 @@ export default function MostLikedProjectsPage() {
       setErrorMessage("");
 
       const res = await axios.get(
-        "http://localhost:5000/api/projects/most-liked/showcase"
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/most-liked/showcase`
       );
 
       setProjects(res.data.mostLikedProjects || []);
@@ -54,7 +55,8 @@ export default function MostLikedProjectsPage() {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/projects/${projectId}/toggle-like`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${projectId}/toggle-like`,
         {},
         {
           headers: {

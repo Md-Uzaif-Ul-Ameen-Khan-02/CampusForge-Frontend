@@ -19,7 +19,8 @@ export default function LeaderboardPage() {
       setErrorMessage("");
 
       const res = await axios.get(
-        "http://localhost:5000/api/analytics/leaderboard"
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/analytics/leaderboard`
       );
 
       setLeaderboard(res.data.leaderboard || []);

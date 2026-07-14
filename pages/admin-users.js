@@ -48,7 +48,8 @@ export default function AdminUsersPage() {
         return;
       }
 
-      const res = await axios.get("http://localhost:5000/api/admin/users", {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/admin/users`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -74,7 +75,8 @@ export default function AdminUsersPage() {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/admin/assign-moderator/${userId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/admin/assign-moderator/${userId}`,
         {},
         {
           headers: {

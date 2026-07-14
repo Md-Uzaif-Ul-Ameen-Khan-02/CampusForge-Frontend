@@ -2,7 +2,8 @@ import axios from "axios";
 
 const API = axios.create({
   baseURL:
-    "http://localhost:5000/api",
+    `${process.env.NEXT_PUBLIC_API_URL}
+/api`,
 });
 
 // ATTACH ACCESS TOKEN

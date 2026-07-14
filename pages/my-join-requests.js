@@ -51,7 +51,8 @@ export default function MyJoinRequestsPage() {
       }
 
       const res = await axios.get(
-        "http://localhost:5000/api/join-requests/me",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/join-requests/me`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -88,7 +89,8 @@ export default function MyJoinRequestsPage() {
       }
 
       await axios.delete(
-        `http://localhost:5000/api/join-requests/cancel/${requestId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/join-requests/cancel/${requestId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

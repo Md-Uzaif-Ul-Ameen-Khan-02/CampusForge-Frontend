@@ -41,7 +41,8 @@ export default function Dashboard() {
       setFeaturedError("");
 
       const res = await axios.get(
-        "http://localhost:5000/api/projects/featured/showcase"
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/featured/showcase`
       );
 
       setFeaturedProjects(res.data.featuredProjects || []);

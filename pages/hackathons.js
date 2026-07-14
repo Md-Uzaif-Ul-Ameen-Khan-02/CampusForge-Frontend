@@ -20,7 +20,8 @@ export default function HackathonsPage() {
       setErrorMessage("");
 
       const res = await axios.get(
-        `http://localhost:5000/api/hackathons?search=${encodeURIComponent(
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/hackathons?search=${encodeURIComponent(
           searchValue
         )}`
       );

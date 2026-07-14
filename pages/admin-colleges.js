@@ -27,7 +27,8 @@ export default function AdminCollegesPage() {
       }
 
       const res = await axios.get(
-        "http://localhost:5000/api/colleges/pending",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/colleges/pending`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -52,7 +53,8 @@ export default function AdminCollegesPage() {
       const token = getToken();
 
       await axios.patch(
-        `http://localhost:5000/api/colleges/approve/${collegeId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/colleges/approve/${collegeId}`,
         {},
         {
           headers: {
@@ -78,7 +80,8 @@ export default function AdminCollegesPage() {
       const token = getToken();
 
       await axios.patch(
-        `http://localhost:5000/api/colleges/reject/${collegeId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/colleges/reject/${collegeId}`,
         {
           rejectionReason:
             rejectionReasons[collegeId] ||

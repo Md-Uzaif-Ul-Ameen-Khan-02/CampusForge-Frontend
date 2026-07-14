@@ -54,7 +54,8 @@ export default function MyTasksPage() {
       }
 
       const res = await axios.get(
-        "http://localhost:5000/api/tasks/my-tasks",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/tasks/my-tasks`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -85,7 +86,8 @@ export default function MyTasksPage() {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/tasks/status/${taskId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/tasks/status/${taskId}`,
         {
           status,
         },

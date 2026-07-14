@@ -41,7 +41,8 @@ export default function SubmitVerificationPage() {
       }
 
       const res = await axios.get(
-        `http://localhost:5000/api/colleges/approved/search?search=${encodeURIComponent(
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/colleges/approved/search?search=${encodeURIComponent(
           value
         )}`,
         {
@@ -97,7 +98,8 @@ export default function SubmitVerificationPage() {
       formData.append("idCard", idCard);
 
       const res = await axios.post(
-        "http://localhost:5000/api/verifications/submit",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/verifications/submit`,
         formData,
         {
           headers: {

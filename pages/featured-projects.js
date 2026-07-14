@@ -27,7 +27,8 @@ export default function FeaturedProjectsPage() {
       setErrorMessage("");
 
       const res = await axios.get(
-        "http://localhost:5000/api/projects/featured/showcase"
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/featured/showcase`
       );
 
       setFeaturedProjects(res.data.featuredProjects || []);
@@ -77,7 +78,8 @@ export default function FeaturedProjectsPage() {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/projects/${projectId}/toggle-like`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${projectId}/toggle-like`,
         {},
         {
           headers: {

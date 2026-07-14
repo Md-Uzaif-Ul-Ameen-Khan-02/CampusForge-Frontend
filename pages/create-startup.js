@@ -36,7 +36,8 @@ export default function CreateStartupPage() {
       }
 
       await axios.post(
-        "http://localhost:5000/api/startups/create",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/startups/create`,
         {
           startupName,
           problemStatement,

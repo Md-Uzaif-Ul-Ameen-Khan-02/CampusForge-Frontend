@@ -22,7 +22,8 @@ export default function RegisterCollegePage() {
     try {
       setLoading(true);
 
-      await axios.post("http://localhost:5000/api/auth/register-college", {
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}
+/api/auth/register-college`, {
         fullName,
         email,
         password,

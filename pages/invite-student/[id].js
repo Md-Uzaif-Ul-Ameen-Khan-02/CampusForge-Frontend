@@ -29,7 +29,8 @@ export default function InviteStudentPage() {
     try {
       const token = getToken();
 
-      const res = await axios.get(`http://localhost:5000/api/projects/${id}`, {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${id}`, {
         headers: token ? { Authorization: `Bearer ${token}` } : {},
       });
 
@@ -58,7 +59,8 @@ export default function InviteStudentPage() {
       }
 
       const res = await axios.get(
-        `http://localhost:5000/api/profile/search/users?keyword=${encodeURIComponent(
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/profile/search/users?keyword=${encodeURIComponent(
           search
         )}`,
         {
@@ -98,7 +100,8 @@ export default function InviteStudentPage() {
       }
 
       await axios.post(
-        "http://localhost:5000/api/project-invites",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/project-invites`,
         {
           projectId: id,
           invitedUserId: selectedUser._id,

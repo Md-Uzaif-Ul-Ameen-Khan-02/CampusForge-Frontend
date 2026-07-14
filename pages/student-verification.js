@@ -47,7 +47,8 @@ export default function StudentVerificationPage() {
       formData.append("idCard", idCard);
 
       await axios.post(
-        "http://localhost:5000/api/verifications/submit",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/verifications/submit`,
         formData,
         {
           headers: {

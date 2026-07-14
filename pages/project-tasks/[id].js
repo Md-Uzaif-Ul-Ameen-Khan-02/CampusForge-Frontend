@@ -51,7 +51,8 @@ export default function ProjectTasksPage() {
     try {
       const token = getToken();
 
-      const res = await axios.get(`http://localhost:5000/api/projects/${id}`, {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${id}`, {
         headers: token
           ? {
               Authorization: `Bearer ${token}`,
@@ -78,7 +79,8 @@ export default function ProjectTasksPage() {
       }
 
       const res = await axios.get(
-        `http://localhost:5000/api/tasks/project/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/tasks/project/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -110,7 +112,8 @@ export default function ProjectTasksPage() {
       }
 
       await axios.post(
-        "http://localhost:5000/api/tasks/create",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/tasks/create`,
         {
           projectId: id,
           title,
@@ -151,7 +154,8 @@ export default function ProjectTasksPage() {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/tasks/status/${taskId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/tasks/status/${taskId}`,
         {
           status,
         },
@@ -184,7 +188,8 @@ export default function ProjectTasksPage() {
         return;
       }
 
-      await axios.delete(`http://localhost:5000/api/tasks/${taskId}`, {
+      await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}
+/api/tasks/${taskId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -209,7 +214,8 @@ export default function ProjectTasksPage() {
       }
 
       const res = await axios.get(
-        `http://localhost:5000/api/task-comments/${taskId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/task-comments/${taskId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -244,7 +250,8 @@ export default function ProjectTasksPage() {
       }
 
       await axios.post(
-        `http://localhost:5000/api/task-comments/${taskId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/task-comments/${taskId}`,
         {
           comment,
         },
@@ -283,7 +290,8 @@ export default function ProjectTasksPage() {
       }
 
       await axios.delete(
-        `http://localhost:5000/api/task-comments/${commentId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/task-comments/${commentId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -308,7 +316,8 @@ export default function ProjectTasksPage() {
       }
 
       const res = await axios.get(
-        `http://localhost:5000/api/task-attachments/${taskId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/task-attachments/${taskId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -346,7 +355,8 @@ export default function ProjectTasksPage() {
       formData.append("file", file);
 
       await axios.post(
-        `http://localhost:5000/api/task-attachments/${taskId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/task-attachments/${taskId}`,
         formData,
         {
           headers: {
@@ -386,7 +396,8 @@ export default function ProjectTasksPage() {
       }
 
       await axios.delete(
-        `http://localhost:5000/api/task-attachments/${attachmentId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/task-attachments/${attachmentId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

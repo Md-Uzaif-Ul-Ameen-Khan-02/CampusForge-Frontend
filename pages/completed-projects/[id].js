@@ -36,7 +36,8 @@ export default function CompletedProjectDetailsPage() {
       setErrorMessage("");
 
       const res = await axios.get(
-        `http://localhost:5000/api/projects/completed/showcase/${id}`
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/completed/showcase/${id}`
       );
 
       setShowcase(res.data.showcase);
@@ -55,7 +56,8 @@ export default function CompletedProjectDetailsPage() {
   const fetchReviews = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/project-reviews/${id}`
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/project-reviews/${id}`
       );
 
       setReviews(res.data.reviews || []);
@@ -78,7 +80,8 @@ export default function CompletedProjectDetailsPage() {
       }
 
       await axios.post(
-        `http://localhost:5000/api/project-reviews/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/project-reviews/${id}`,
         {
           rating,
           comment,
@@ -120,7 +123,8 @@ export default function CompletedProjectDetailsPage() {
       }
 
       await axios.delete(
-        `http://localhost:5000/api/project-reviews/${reviewId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/project-reviews/${reviewId}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -158,7 +162,8 @@ export default function CompletedProjectDetailsPage() {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/projects/${id}/toggle-like`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${id}/toggle-like`,
         {},
         {
           headers: {

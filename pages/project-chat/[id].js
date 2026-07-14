@@ -44,7 +44,8 @@ export default function ProjectChatPage() {
     try {
       const token = getToken();
 
-      const res = await axios.get(`http://localhost:5000/api/projects/${id}`, {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${id}`, {
         headers: token
           ? {
               Authorization: `Bearer ${token}`,
@@ -69,7 +70,8 @@ export default function ProjectChatPage() {
         return;
       }
 
-      const res = await axios.get(`http://localhost:5000/api/chat/${id}`, {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/chat/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -98,7 +100,8 @@ export default function ProjectChatPage() {
       }
 
       await axios.post(
-        "http://localhost:5000/api/chat/send",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/chat/send`,
         {
           projectId: id,
           text,

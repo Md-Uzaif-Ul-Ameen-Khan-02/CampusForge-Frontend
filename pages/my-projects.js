@@ -53,7 +53,8 @@ export default function MyProjectsPage() {
       }
 
       const res = await axios.get(
-        "http://localhost:5000/api/projects/my-projects",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/my-projects`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -88,7 +89,8 @@ export default function MyProjectsPage() {
       for (const project of projectList) {
         try {
           const res = await axios.get(
-            `http://localhost:5000/api/tasks/project/${project._id}/progress`,
+            `${process.env.NEXT_PUBLIC_API_URL}
+/api/tasks/project/${project._id}/progress`,
             {
               headers: {
                 Authorization: `Bearer ${token}`,

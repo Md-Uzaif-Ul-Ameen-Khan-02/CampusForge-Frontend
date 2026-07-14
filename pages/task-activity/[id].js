@@ -36,7 +36,8 @@ export default function TaskActivityPage() {
       }
 
       const res = await axios.get(
-        `http://localhost:5000/api/activity/task/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/activity/task/${id}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

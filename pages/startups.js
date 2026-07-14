@@ -20,7 +20,8 @@ export default function StartupsPage() {
       setErrorMessage("");
 
       const res = await axios.get(
-        `http://localhost:5000/api/startups?search=${encodeURIComponent(
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/startups?search=${encodeURIComponent(
           searchValue
         )}`
       );

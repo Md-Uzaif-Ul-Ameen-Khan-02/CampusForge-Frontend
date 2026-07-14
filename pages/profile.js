@@ -40,7 +40,8 @@ export default function ProfilePage() {
         return;
       }
 
-      const res = await axios.get("http://localhost:5000/api/profile/me", {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/profile/me`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -104,7 +105,8 @@ export default function ProfilePage() {
       }
 
       const res = await axios.put(
-        "http://localhost:5000/api/profile/update",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/profile/update`,
         payload,
         {
           headers: {
@@ -143,7 +145,8 @@ export default function ProfilePage() {
       formData.append("image", profilePhoto);
 
       await axios.post(
-        "http://localhost:5000/api/upload/profile-photo",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/upload/profile-photo`,
         formData,
         {
           headers: {
@@ -184,7 +187,8 @@ export default function ProfilePage() {
       const formData = new FormData();
       formData.append("resume", resume);
 
-      await axios.post("http://localhost:5000/api/upload/resume", formData, {
+      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}
+/api/upload/resume`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",

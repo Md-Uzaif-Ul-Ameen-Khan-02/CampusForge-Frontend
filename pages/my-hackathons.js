@@ -34,7 +34,8 @@ export default function MyHackathonsPage() {
       }
 
       const res = await axios.get(
-        "http://localhost:5000/api/hackathons/my-registrations",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/hackathons/my-registrations`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -71,7 +72,8 @@ export default function MyHackathonsPage() {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/hackathons/submit/${registrationId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/hackathons/submit/${registrationId}`,
         {
           submissionLink,
         },

@@ -36,7 +36,8 @@ export default function ProjectDetails() {
 
       const token = getToken();
 
-      const res = await axios.get(`http://localhost:5000/api/projects/${id}`, {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${id}`, {
         headers: token
           ? {
               Authorization: `Bearer ${token}`,
@@ -63,7 +64,8 @@ export default function ProjectDetails() {
       if (!token) return;
 
       const res = await axios.get(
-        `http://localhost:5000/api/tasks/project/${id}/progress`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/tasks/project/${id}/progress`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -90,7 +92,8 @@ export default function ProjectDetails() {
       }
 
       await axios.post(
-        "http://localhost:5000/api/join-requests",
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/join-requests`,
         {
           projectId: id,
           message: "I would like to join this project.",
@@ -127,7 +130,8 @@ export default function ProjectDetails() {
         return;
       }
 
-      await axios.delete(`http://localhost:5000/api/projects/${project._id}`, {
+      await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${project._id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -159,7 +163,8 @@ export default function ProjectDetails() {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/projects/${project._id}/leave`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${project._id}/leave`,
         {},
         {
           headers: {
@@ -194,7 +199,8 @@ export default function ProjectDetails() {
       }
 
       await axios.patch(
-        `http://localhost:5000/api/projects/${project._id}/remove-member/${memberId}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${project._id}/remove-member/${memberId}`,
         {},
         {
           headers: {

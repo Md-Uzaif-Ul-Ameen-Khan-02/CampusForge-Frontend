@@ -37,7 +37,8 @@ export default function EditProjectPage() {
 
       const token = getToken();
 
-      const res = await axios.get(`http://localhost:5000/api/projects/${id}`, {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${id}`, {
         headers: token
           ? {
               Authorization: `Bearer ${token}`,
@@ -85,7 +86,8 @@ export default function EditProjectPage() {
       }
 
       await axios.put(
-        `http://localhost:5000/api/projects/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}
+/api/projects/${id}`,
         {
           title,
           description,

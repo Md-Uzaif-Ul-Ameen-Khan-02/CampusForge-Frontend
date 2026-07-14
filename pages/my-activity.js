@@ -32,7 +32,8 @@ export default function MyActivityPage() {
         return;
       }
 
-      const res = await axios.get("http://localhost:5000/api/activity/me", {
+      const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}
+/api/activity/me`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
